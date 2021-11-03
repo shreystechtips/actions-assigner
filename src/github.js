@@ -14,7 +14,7 @@ const handle = async (token, reviewers, teamReviewers) => {
     await assign(octokit)
     if (reviewers || teamReviewers) await review(octokit, reviewers, teamReviewers)
   } else {
-    throw new Error('Sorry, this Action only works with pull requests.')
+    throw new Error('Sorry, this Action only works with pull requests.' + context.eventName);
   }
 }
 
