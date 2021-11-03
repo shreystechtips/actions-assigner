@@ -8,6 +8,7 @@ const { context, getOctokit } = require('@actions/github')
  * @param {string} teamReviewers - GitHub teams
  */
 const handle = async (token, reviewers, teamReviewers) => {
+  console.log(context.eventName);
   if (context.eventName.includes('pull_request')) {
     const octokit = getOctokit(token)
     await assign(octokit)
