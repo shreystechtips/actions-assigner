@@ -9,13 +9,13 @@ const { context, getOctokit } = require('@actions/github')
  */
 const handle = async (token, reviewers, teamReviewers) => {
   console.log(context.eventName);
-  if (context.eventName.includes('pull_request')) {
+//   if (context.eventName.includes('pull_request')) {
     const octokit = getOctokit(token)
     await assign(octokit)
     if (reviewers || teamReviewers) await review(octokit, reviewers, teamReviewers)
-  } else {
-    throw new Error('Sorry, this Action only works with pull requests.' + context.eventName);
-  }
+//   } else {
+//     throw new Error('Sorry, this Action only works with pull requests.' + context.eventName);
+//   }
 }
 
 /**
